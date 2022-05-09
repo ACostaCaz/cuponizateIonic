@@ -1,0 +1,7 @@
+{
+  "name": "cuponizateIonic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
