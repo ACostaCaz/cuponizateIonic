@@ -1,0 +1,14 @@
+<div class="grid-container">
+  <div class="grid-item">
+      <img src="../../assets/images/logotype.jpg" alt="Logo">
+      <form >
+          <input type="email" [(ngModel)]="email" id="email" name="email" placeholder="Email"><br>
+          <input type="text" id="username" [(ngModel)]="username" name="username" placeholder="Username"><br>
+          <input type="password" id="password" [(ngModel)]="password" name="password" placeholder="Password"><br>
+          <input type="password" id="passwordRepeat" [(ngModel)]="passwordRepeat" name="passwordRepeat" placeholder="RepeatPassword"><br>
+          <p>¿Already have an account?</p>
+          <p class="loginredir">Login <a href="login">here</a></p>
+          <button type="submit" (click)="register()" id="register" value="Register">Register</button>
+      </form>
+  </div>
+</div>

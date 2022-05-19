@@ -1,0 +1,56 @@
+.grid-container {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "top_left top_center top_right"
+      "center_left center center_right"
+      "bot_left bot_center bot_right";
+  }
+  
+.grid-item { grid-area: center_left; }
+form {
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 10px 5px 50px 3px rgba(170, 154, 154, 0.568);
+    margin-right: 170px;
+    margin-left: 70px;
+
+}
+
+input {
+    
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border-collapse: none;
+    border-style: groove;
+}
+
+p {
+    margin-left: 10px;
+}
+
+#login {
+    margin-left: 70px;
+    border: none;
+    background-size: 50px;
+    background-color: #91B7D9;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+img {
+    margin-left: 90px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 50px;
+    height: 50px;
+}

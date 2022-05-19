@@ -1,0 +1,41 @@
+.grid-container {  
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "left center right";
+  }
+  
+.grid-item { 
+    grid-area: center;
+    margin-top: 50px;
+    border-radius: 10px;
+    border-radius: 5px;
+    box-shadow: 10px 5px 50px 3px rgba(170, 154, 154, 0.568);
+    padding: 50px;
+}
+
+#buyCoupon {
+    margin-left: 25px;
+    border: none;
+    background-size: 50px;
+    background-color: #91B7D9;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+}
+
+.formInput {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding-top:5px;
+    padding-bottom: 5px;
+    padding-right: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

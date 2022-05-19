@@ -1,0 +1,24 @@
+<ion-content>
+
+        <h2>Create a coupon</h2>
+        <div class="grid-container">
+            <div class="grid-item">
+                <form>
+                    <input type="text" [(ngModel)]="name" id="couponName" name="couponName" placeholder="Name"><br>
+                    
+                    <input type="text" id="ogCost" [(ngModel)]="ogCost" name="ogCost" placeholder="Original Cost"><br>
+                    <input type="text" id="business" [(ngModel)]="business" name="business" placeholder="Business name"><br>
+
+                    <input type="text" id="costDiscounted" [(ngModel)]="discounted" name="costDiscounted" placeholder="Price with discount"><br>
+                    
+                    <textarea name="description" id="description" [(ngModel)]="description" rows="10" cols="30" placeholder="Description"></textarea><br>
+
+                    <label>Add media files:</label>
+                    <input type="text" id="addMedia" name="addMedia"><br>
+
+                    <button type="submit" (click)="createCoupon()" id="createCoupon" value="Create Coupon">Create Coupon</button>
+                </form>
+            </div>
+        </div>
+
+</ion-content>

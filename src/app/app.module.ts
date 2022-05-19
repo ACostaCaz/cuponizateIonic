@@ -6,9 +6,21 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { CouponComponent } from './coupon/coupon.component';
+import { CreateCouponComponent } from './create-coupon/create-coupon.component';
+import { EditCouponComponent } from './edit-coupon/edit-coupon.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { BusinessProfileComponent } from './business-profile/business-profile.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,
+    CouponComponent,
+    CreateCouponComponent,
+    EditCouponComponent,
+    LoginComponent,
+    RegisterComponent,
+    BusinessProfileComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
