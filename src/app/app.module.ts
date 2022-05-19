@@ -12,6 +12,7 @@ import { EditCouponComponent } from './edit-coupon/edit-coupon.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { BusinessProfileComponent } from './business-profile/business-profile.component';
+import { BusinessCouponsComponent } from './business-coupons/business-coupons.component';
 
 @NgModule({
   declarations: [AppComponent,
@@ -20,7 +21,8 @@ import { BusinessProfileComponent } from './business-profile/business-profile.co
     EditCouponComponent,
     LoginComponent,
     RegisterComponent,
-    BusinessProfileComponent],
+    BusinessProfileComponent,
+    BusinessCouponsComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

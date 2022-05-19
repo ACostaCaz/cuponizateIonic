@@ -1,0 +1,17 @@
+<ion-content>
+  <h2>My coupons</h2>
+  <a href="createcoupon" id="createCoupon">Create new coupon</a>
+      <div class="coupon" *ngFor="let coupon of coupons">
+          <img src="../../assets/images/couponimg.jpeg" alt="couponImage">
+          <div class="couponInfo">    
+              <a href="coupon/{{coupon.id}}"><h4>{{coupon.name}}</h4></a>
+              <p>{{coupon.description}}</p>
+              <b><p>Original cost: </p></b>
+              <p class="cost">{{coupon.ogCost}}€</p>
+              <b><p>Discounted price: </p></b>
+              <p class="cost">{{coupon.discounted}}€</p>
+              <a href="editCoupon" class="formInput" id="modifyCoupon">Modify</a>
+              <input type="submit" class="formInput" id="deleteCoupon" value="Delete">
+      </div>
+  </div>
+</ion-content>
