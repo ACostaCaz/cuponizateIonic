@@ -1,0 +1,13 @@
+<ion-content>
+  <h2>Popular coupons</h2>
+      <!--*ngFor="let coupon of coupons | async"-->
+      <div class="coupon">
+          <img src="../../assets/images/couponimg.jpeg" alt="couponImage">
+          <div class="couponInfo">    
+              <a href="coupon/{{coupon.id}}"><h4>{{coupon.name}}</h4></a>
+              <p>{{coupon.description}}</p>
+              <b><p>Original cost: {{coupon.ogCost}} €</p></b>
+              <b><p>Discounted price: {{coupon.discounted}} €</p></b>
+      </div>
+  </div>
+</ion-content>

@@ -1,0 +1,53 @@
+h2 {
+    margin-left: 50px;
+}
+
+.coupon {
+    font-size: small;
+    box-shadow: 10px 5px 50px 3px rgba(170, 154, 154, 0.568);
+    padding-top: 20px;
+    padding-bottom: 50px;
+    padding-right: 20px;
+    margin-left: 50px;
+    margin-right: 1200px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+img {
+    margin-left: 20px;
+    margin-bottom: 30px;
+    width: 75px;
+    height: 50px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: blue;
+}
+
+.couponInfo {
+    margin-top: -250px;
+    margin-left: 350px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .coupon {
+        font-size: smaller;
+        box-shadow: 10px 5px 50px 3px rgba(170, 154, 154, 0.568);
+        margin-right: 50px;
+        padding-bottom: 70px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .coupon {
+        font-size: smaller;
+        box-shadow: 10px 5px 50px 3px rgba(170, 154, 154, 0.568);
+        margin-right: 50px;
+    }
+}
