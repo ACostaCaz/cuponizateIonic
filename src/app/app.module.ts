@@ -14,6 +14,7 @@ import { RegisterComponent } from './register/register.component';
 import { BusinessProfileComponent } from './business-profile/business-profile.component';
 import { BusinessCouponsComponent } from './business-coupons/business-coupons.component';
 import { IndexComponent } from './index/index.component';
+import { FavCouponsComponent } from './fav-coupons/fav-coupons.component';
 
 @NgModule({
   declarations: [AppComponent,
@@ -24,7 +25,8 @@ import { IndexComponent } from './index/index.component';
     RegisterComponent,
     BusinessProfileComponent,
     BusinessCouponsComponent,
-    IndexComponent],
+    IndexComponent,
+    FavCouponsComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
