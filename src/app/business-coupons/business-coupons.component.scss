@@ -15,38 +15,52 @@ h2 {
     margin-top: 50px;
 }
 #deleteCoupon {
-    padding-left: 17px;
-    padding-right: 17px;
-    padding-top: 17px;
-    padding-bottom: 17px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     border-radius: 5px;
     border: none;
     background-color: #91B7D9;
     margin-left: 50px;
-    margin-top: 50px;
+    margin-top: 80px;
 }
 
-.coupon {
-    box-shadow: 10px 5px 50px 3px rgba(170, 154, 154, 0.568);
-    padding-top: 50px;
-    padding-bottom: 100px;
-    padding-left: 30px;
+#modifyCoupon {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: #91B7D9;
     margin-left: 50px;
-    margin-right: 50px;
-    border-radius: 10px;
-    margin-top: 50px;
+    margin-top: 80px;
+}
+p {
+    margin-left: 20px;
+}
+
+
+
+.coupon {
+    font-size: smaller;
+    box-shadow: 10px 5px 50px 3px rgba(170, 154, 154, 0.568);
+    margin-left: 20px;
+    margin-right: 10px;
+    margin-top: 30px;
+    padding-bottom: 20px;
+    border-radius: 5px;
 }
 
 img {
-    margin-left: 50px;
-    width: 300px;
-    height: 250px;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 30px;
+    width: 75px;
+    height: 50px;
 }
 
-.couponInfo {
-    margin-top: -250px;
-    margin-left: 500px;
-}
 
 a {
     text-decoration: none;
