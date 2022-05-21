@@ -15,6 +15,12 @@ import { BusinessProfileComponent } from './business-profile/business-profile.co
 import { BusinessCouponsComponent } from './business-coupons/business-coupons.component';
 import { IndexComponent } from './index/index.component';
 import { FavCouponsComponent } from './fav-coupons/fav-coupons.component';
+import { environment } from '../environments/environment';
+
+import { AngularFireAuthModule} from '@angular/fire/compat/auth';
+import { AngularFireModule} from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore/';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent,
@@ -28,7 +34,8 @@ import { FavCouponsComponent } from './fav-coupons/fav-coupons.component';
     IndexComponent,
     FavCouponsComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule, AngularFirestoreModule, FormsModule ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

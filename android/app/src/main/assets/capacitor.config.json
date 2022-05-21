@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "cuponizateIonic",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
