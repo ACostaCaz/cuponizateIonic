@@ -15,6 +15,7 @@ import { BusinessProfileComponent } from './business-profile/business-profile.co
 import { BusinessCouponsComponent } from './business-coupons/business-coupons.component';
 import { IndexComponent } from './index/index.component';
 import { FavCouponsComponent } from './fav-coupons/fav-coupons.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [AppComponent,
@@ -26,7 +27,8 @@ import { FavCouponsComponent } from './fav-coupons/fav-coupons.component';
     BusinessProfileComponent,
     BusinessCouponsComponent,
     IndexComponent,
-    FavCouponsComponent],
+    FavCouponsComponent,
+    NavbarComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

@@ -1,0 +1,72 @@
+body {
+    margin: 0;
+  }
+  .svg-icon {
+    width: 1em;
+    height: 1em;
+  }
+  
+  .svg-icon path,
+  .svg-icon polygon,
+  .svg-icon rect {
+    fill: #4691f6;
+  }
+  
+  .svg-icon circle {
+    stroke: #4691f6;
+    stroke-width: 1;
+  }
+  
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #011640;
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+  
+  li a {
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+    color: white;
+  }
+
+.home {
+    margin-left: 110px;
+}
+  
+  .fa-circle-user {
+    color: white;
+    padding: 16px;
+    font-size: 24px;
+  }
+  
+  .fa-magnifying-glass {
+    color: white;
+    padding: 8px;
+  }
+  
+  .icons-container button {
+    border-radius: 20px;
+  }
+  
+  .logo {
+    width: 40px;
+    padding: 5px;
+  }
+  
+  .fa-solid {
+    color: white;
+  }
+  .fa-bars {
+    color: white;
+    visibility: hidden;
+  }
