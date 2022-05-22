@@ -7,13 +7,14 @@ import { Observable } from 'rxjs';
 })
 export class CouponsService {
   private couponsCollection: AngularFirestoreCollection<Coupon>;
+  // eslint-disable-next-line @typescript-eslint/member-ordering
   coupons: Observable<Coupon[]>;
   constructor(private afs: AngularFirestore) {
     this.couponsCollection = afs.collection<Coupon>('coupons');
     this.coupons = this.couponsCollection.valueChanges();
   }
   getAll(){
-    return this.coupons
+    return this.coupons;
   }
   create(coupon: Coupon) {
     this.couponsCollection.add(coupon);

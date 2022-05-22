@@ -1,24 +1,24 @@
 import { Injectable } from '@angular/core';
 import {AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { businessProfile } from '../interfaces/business-profile.interface';
+import { BusinessProfile } from '../interfaces/business-profile.interface';
 import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export class profileService {
-  private profileCollection: AngularFirestoreCollection<businessProfile>;
+  private profileCollection: AngularFirestoreCollection<BusinessProfile>;
   // eslint-disable-next-line @typescript-eslint/member-ordering
-  profile: Observable<businessProfile[]>;
+  profile: Observable<BusinessProfile[]>;
   constructor(private afs: AngularFirestore) {
-    this.profileCollection = afs.collection<businessProfile>('profiles');
+    this.profileCollection = afs.collection<BusinessProfile>('profiles');
     this.profile = this.profileCollection.valueChanges();
   }
-  create(profile: businessProfile) {
+  create(profile: BusinessProfile) {
     this.profileCollection.add(profile);
   }
-  update(id: string, data: any){
-    return this.profileCollection.doc(id).update(data);
+  update(id: string, profile: BusinessProfile){
+    return this.profileCollection.doc(id).update(profile);
   }
   delete(id: string) {
     return this.profileCollection.doc(id).delete();

@@ -4,7 +4,7 @@
       <!--*ngFor="let coupon of coupons | async"-->
       <div class="coupons" *ngFor="let coupon of coupons | async">
         <div class="coupon">
-            <img src="../../assets/images/couponimg.jpeg" alt="couponImage">
+            <img src="{{imageurl}}" alt="couponImage">
             <div class="couponInfo">    
                 <a class="couponName" href="coupon/{{coupon.id}}"><h4>{{coupon.name}}</h4></a>
                 <p>{{coupon.description}}</p>

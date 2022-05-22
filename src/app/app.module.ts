@@ -10,7 +10,6 @@ import { CreateCouponComponent } from './create-coupon/create-coupon.component';
 import { EditCouponComponent } from './edit-coupon/edit-coupon.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { BusinessProfileComponent } from './business-profile/business-profile.component';
 import { BusinessCouponsComponent } from './business-coupons/business-coupons.component';
 import { IndexComponent } from './index/index.component';
 import { FavCouponsComponent } from './fav-coupons/fav-coupons.component';
@@ -32,7 +31,6 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
     EditCouponComponent,
     LoginComponent,
     RegisterComponent,
-    BusinessProfileComponent,
     BusinessCouponsComponent,
     IndexComponent,
     FavCouponsComponent,

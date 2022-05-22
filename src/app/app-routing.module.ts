@@ -6,7 +6,6 @@ import { CreateCouponComponent } from './create-coupon/create-coupon.component';
 import { EditCouponComponent } from './edit-coupon/edit-coupon.component';
 import { BusinessCouponsComponent } from './business-coupons/business-coupons.component';
 import { CouponComponent } from './coupon/coupon.component';
-import { BusinessProfileComponent } from './business-profile/business-profile.component';
 import { ProfileManagementComponent } from './profile-management/profile-management.component';
 import { IndexComponent } from './index/index.component';
 import { AngularFireAuthGuard, hasCustomClaim, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/fire/compat/auth-guard';
@@ -23,10 +22,12 @@ const routes: Routes = [
   pathMatch: 'full',canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }},
   { path: 'coupon/:id', component: CouponComponent,
   pathMatch: 'full',canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }},
-  { path: 'profile', component: BusinessProfileComponent,
-  pathMatch: 'full',canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }},
   { path: 'profilemanagement', component: ProfileManagementComponent,
-  pathMatch: 'full',canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }}
+  pathMatch: 'full',canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }},
+  {
+    path: 'details',
+    loadChildren: () => import('./pages/details/details.module').then( m => m.DetailsPageModule)
+  }
 ];
 
 @NgModule({
