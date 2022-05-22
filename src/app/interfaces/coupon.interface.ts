@@ -5,5 +5,5 @@ export interface Coupon {
     ogCost: string;
     discounted: string;
     description: number;
-    user_id: string;
+    userId: string;
 }

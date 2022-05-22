@@ -5,8 +5,10 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export class profileService {
   private profileCollection: AngularFirestoreCollection<businessProfile>;
+  // eslint-disable-next-line @typescript-eslint/member-ordering
   profile: Observable<businessProfile[]>;
   constructor(private afs: AngularFirestore) {
     this.profileCollection = afs.collection<businessProfile>('profiles');
@@ -15,7 +17,7 @@ export class profileService {
   create(profile: businessProfile) {
     this.profileCollection.add(profile);
   }
-  update(id: string){
+  update(id: string, data: any){
     return this.profileCollection.doc(id).update(data);
   }
   delete(id: string) {
