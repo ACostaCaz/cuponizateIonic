@@ -22,6 +22,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore/';
 import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileManagementComponent } from './profile-management/profile-management.component';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [AppComponent,
@@ -39,7 +40,7 @@ import { ProfileManagementComponent } from './profile-management/profile-managem
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule, AngularFirestoreModule, FormsModule ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
