@@ -4,6 +4,7 @@
       <div class="grid-item">
           <h3>Edit company profile</h3>
           <form>
+                <img [src]="downloadURL | async"/>
               <label for="profileName">Name:</label><br>
               <input type="text" [(ngModel)]="name" id="profileName" name="profileName" value="{{name}}"><br>
               
@@ -11,7 +12,7 @@
               <input type="text" id="address" [(ngModel)]="address" name="address" value="{{address}}"><br>
               
               <label for="addMedia">Add media files:</label><br>
-              <input type="file" id="addMedia" name="addMedia" placeholder="Add media files">
+              <input type="file" id="addMedia" (change)="uploadImage($event)" name="addMedia" placeholder="Add media files">
 
               <ul>
                   <li>M - <input type="text" [(ngModel)]="monday" name="time" id="time" placeholder="HH:MM"></li>

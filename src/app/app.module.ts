@@ -23,6 +23,7 @@ import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileManagementComponent } from './profile-management/profile-management.component';
 import { AuthService } from './services/auth.service';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 
 @NgModule({
   declarations: [AppComponent,
@@ -39,7 +40,8 @@ import { AuthService } from './services/auth.service';
     ProfileManagementComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule, AngularFirestoreModule, FormsModule ],
+    AngularFireAuthModule, AngularFirestoreModule, FormsModule, AngularFireStorageModule
+  ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, AuthService],
   bootstrap: [AppComponent],
 })

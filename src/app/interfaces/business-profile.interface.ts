@@ -1,6 +1,7 @@
 export interface businessProfile {
     id: string;
     name: string;
+    imageurl: string;
     address: string;
     monday: string;
     tuesday: string;

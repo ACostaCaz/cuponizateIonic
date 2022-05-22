@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { profileService } from '../services/profile.service';
 import {AuthService} from '../services/auth.service';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { finalize } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-profile-management',
   templateUrl: './profile-management.component.html',
@@ -16,16 +19,35 @@ export class ProfileManagementComponent implements OnInit {
   friday!: string;
   saturday!: string;
   sunday!: string;
+  downloadURL: Observable<string>;
+  profileUrl: string;
+
   // eslint-disable-next-line @typescript-eslint/no-shadow
-  constructor(private profileService: profileService, private authService: AuthService) { }
+  constructor(private profileService: profileService, private authService: AuthService,private storage: AngularFireStorage) { }
 
   ngOnInit(): void {
   }
+
+  uploadImage(event) {
+    const file = event.target.files[0];
+    const filePath = '/userImages/' + 'mikasa';
+    const ref = this.storage.ref(filePath);
+    const task = this.storage.upload(filePath,file);
+    task.snapshotChanges().pipe(
+      finalize(() =>
+      {
+        this.downloadURL = ref.getDownloadURL();
+      this.downloadURL.subscribe(result => {
+        this.profileUrl = result;
+      });}))
+    .subscribe();
+  }
   createProfile() {
+
     this.profileService.create({
-      id: this.authService.getUid(),
       address: this.address,
       name: this.name,
+      imageurl: this.profileUrl,
       monday: this.monday,
       tuesday: this.tuesday,
       wednesday: this.wednesday,
