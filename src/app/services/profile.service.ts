@@ -14,8 +14,8 @@ export class profileService {
     this.profileCollection = afs.collection<BusinessProfile>('profiles');
     this.profile = this.profileCollection.valueChanges();
   }
-  create(profile: BusinessProfile) {
-    this.profileCollection.add(profile);
+  create(id: string, profile: BusinessProfile) {
+    this.profileCollection.doc(id).set(profile);
   }
   update(id: string, profile: BusinessProfile){
     return this.profileCollection.doc(id).update(profile);
