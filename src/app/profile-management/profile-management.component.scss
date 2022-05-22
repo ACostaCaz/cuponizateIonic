@@ -1,0 +1,60 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "left center right";
+}
+
+
+.grid-item { 
+    grid-area: center;
+    border-radius: 10px;
+}
+
+form {
+    margin-left: 50px;
+}
+
+h3 {
+    margin: 20px;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+
+input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding-top:5px;
+    padding-bottom: 5px;
+    padding-right: 50px;
+    margin-bottom: 20px;
+}
+
+#addMedia {
+    margin-right: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+#saveProfile {
+    margin-left: 25px;
+    border: none;
+    background-size: 50px;
+    background-color: #91B7D9;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+ul {
+    margin-left: -30px;
+}

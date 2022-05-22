@@ -21,6 +21,7 @@ import { AngularFireModule} from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore/';
 import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ProfileManagementComponent } from './profile-management/profile-management.component';
 
 @NgModule({
   declarations: [AppComponent,
@@ -33,7 +34,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     BusinessCouponsComponent,
     IndexComponent,
     FavCouponsComponent,
-    NavbarComponent],
+    NavbarComponent,
+    ProfileManagementComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule, AngularFirestoreModule, FormsModule ],
