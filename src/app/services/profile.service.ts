@@ -17,8 +17,8 @@ export class profileService {
   create(profile: BusinessProfile) {
     this.profileCollection.add(profile);
   }
-  update(id: string, data: any){
-    return this.profileCollection.doc(id).update(data);
+  update(id: string, profile: BusinessProfile){
+    return this.profileCollection.doc(id).update(profile);
   }
   delete(id: string) {
     return this.profileCollection.doc(id).delete();
