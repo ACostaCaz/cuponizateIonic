@@ -1,4 +1,4 @@
-export interface businessProfile {
+export interface BusinessProfile {
     id: string;
     name: string;
     address: string;
