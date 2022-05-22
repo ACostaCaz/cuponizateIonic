@@ -1,5 +1,5 @@
+<app-navbar></app-navbar>
 <ion-content>
-
         <h2>Create a coupon</h2>
         <div class="grid-container">
             <div class="grid-item">
@@ -14,11 +14,10 @@
                     <textarea name="description" id="description" [(ngModel)]="description" rows="10" cols="30" placeholder="Description"></textarea><br>
 
                     <label>Add media files:</label>
-                    <input type="text" id="addMedia" name="addMedia"><br>
+                    <input type="file" id="addMedia" name="addMedia"><br>
 
                     <button type="submit" (click)="createCoupon()" id="createCoupon" value="Create Coupon">Create Coupon</button>
                 </form>
             </div>
         </div>
-
 </ion-content>

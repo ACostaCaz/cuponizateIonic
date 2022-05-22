@@ -1,8 +1,9 @@
+<app-navbar></app-navbar>
 <ion-content>
   <h2>My coupons</h2>
   <a href="createcoupon" id="createCoupon">Create new coupon</a>
     <!--*ngFor="let coupon of coupons"-->  
-    <div class="coupon">
+    <div class="coupon" *ngFor="let coupon of coupons">
           <img src="../../assets/images/couponimg.jpeg" alt="couponImage">
           <div class="couponInfo">    
               <a href="coupon/{{coupon.id}}"><h4>{{coupon.name}}</h4></a>

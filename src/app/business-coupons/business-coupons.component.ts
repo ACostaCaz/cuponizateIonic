@@ -10,18 +10,19 @@ import { AuthService } from '../services/auth.service';
 })
 export class BusinessCouponsComponent implements OnInit {
   coupons!: Coupon[];
-  constructor(private readonly afs: AngularFirestore, private authService: AuthService) {}
-  ngOnInit() {
+  constructor(private readonly afs: AngularFirestore, private authService: AuthService) {
     this.businessCoupons().then(coupon => {
       console.log(coupon);
       this.coupons = coupon;
     });
   }
+  ngOnInit() {
+  }
 
   businessCoupons() {
    return new Promise<any>((resolve) => {
     console.log(this.authService.getUid());
-    this.afs.collection('coupons', ref => ref.where('user_id', '==', this.authService.getUid()))
+    this.afs.collection('coupons', ref => ref.where('userId', '==', this.authService.getUid()))
     .valueChanges()
     .subscribe(coupon => resolve(coupon));
    });
