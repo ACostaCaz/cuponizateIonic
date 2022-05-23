@@ -5,6 +5,7 @@
           <h3>Company profile</h3>
           <a name = "couponList" href="mycoupons">My coupons list</a>
           <form>
+                <img src="{{profileUrl}}"/>
               <label for="profileName">Name:</label><br>
               <input type="text" [(ngModel)]="name" id="profileName" name="profileName"><br>
               
@@ -12,7 +13,7 @@
               <input type="text" id="address" [(ngModel)]="address" name="address"><br>
               
               <label for="addMedia">Add media files:</label><br>
-              <input type="file" id="addMedia" name="addMedia" placeholder="Add media files">
+              <input type="file" id="addMedia" (change)="uploadImage($event)" name="addMedia" placeholder="Add media files">
 
               <ul>
                   <li>M - <input type="text" [(ngModel)]="monday" name="time" id="time"></li>

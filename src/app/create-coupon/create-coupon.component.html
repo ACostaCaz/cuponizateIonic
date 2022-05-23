@@ -14,7 +14,7 @@
                     <textarea name="description" id="description" [(ngModel)]="description" rows="10" cols="30" placeholder="Description"></textarea><br>
 
                     <label>Add media files:</label>
-                    <input type="file" id="addMedia" name="addMedia"><br>
+                    <input type="file" id="addMedia" (change)="uploadImage($event)"  name="addMedia"><br>
 
                     <button type="submit" (click)="createCoupon()" id="createCoupon" value="Create Coupon">Create Coupon</button>
                 </form>

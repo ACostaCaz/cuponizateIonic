@@ -10,6 +10,8 @@ import { switchMap } from 'rxjs/operators';
 import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx';
 import { JsonSQLite } from '@capacitor-community/sqlite';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { DatabaseService } from '../services/database.service';
+
 
 
 @Component({
@@ -19,37 +21,31 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 export class FavCouponsComponent implements OnInit {
   storage: any;
+  data: any = [];
+  constructor(private sqlite: SQLite, private databaseService: DatabaseService) { }
 
-  constructor(private sqlite: SQLite) { }
+  ngOnInit() {
+    this.showFavorites();
+  }
 
-  ngOnInit() {}
-
-  addFavorite(favorite: any): void{
-    let favorites = this.storage.get('favorites');
-    if(favorites){
-      favorites.push(favorite);
-      this.storage.set('favorites', favorites);
-    }else{
-      favorites = [];
-      favorites.push(favorite);
-      this.storage.set('favorites',favorites);
-    }
-
-
-  this.sqlite.create({
-    name: 'data.db',
-    location: 'default'
-  })
-    .then((db: SQLiteObject) => {
-
-
-      db.executeSql('create table favorites (id, business, name, ogCost, discounted, description, userId)', [])
-        .then(() => console.log('Executed SQL'))
+  showFavorites() {
+    this.sqlite.create({
+      name: 'data.db',
+      location: 'default'
+    })
+      .then((db: SQLiteObject) =>
+        {
+        db.executeSql('SELECT * FROM favorites;',[])
+        .then(result => {console.log('Executed SQL');
+        for (let i = 0; i < result.rows.length; i++) {
+          this.data.push(result.rows.item(i));
+        }
+        console.log(this.data);
+      })
+        .catch(e => console.log(e));
+        })
         .catch(e => console.log(e));
 
-
-    })
-    .catch(e => console.log(e));
 
   }
 }

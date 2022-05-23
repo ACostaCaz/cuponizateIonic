@@ -2,7 +2,7 @@
 <ion-content>
   <h2>My favourite coupons</h2>
     <!--*ngFor="let coupon of coupons"-->  
-    <div class="coupon" *ngFor="let coupon of coupons">
+    <div class="coupon" *ngFor="let coupon of data; let i= index">
           <img src="{{imageurl}}" alt="couponImage">
           <div class="couponInfo">    
               <a href="coupon/{{coupon.id}}"><h4>{{coupon.name}}</h4></a>

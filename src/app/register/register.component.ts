@@ -12,12 +12,14 @@ export class RegisterComponent {
   username!: string;
   password!: string;
   passwordRepeat?: string;
-
+  address!: string;
+  name!: string;
   constructor(public authService: AuthService, public router: Router) { }
   register() {
     if (this.password === this.passwordRepeat) {
-      this.authService.register({email: this.email,password: this.password}).then(() => {
-        this.router.navigateByUrl('/login');
+      this.authService.register({email: this.email,password: this.password}, {
+        address: this.address,
+        name: this.name
       });
     } else {
       console.log('Passwords do not match');
