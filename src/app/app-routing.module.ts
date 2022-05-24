@@ -9,6 +9,7 @@ import { CouponComponent } from './coupon/coupon.component';
 import { ProfileManagementComponent } from './profile-management/profile-management.component';
 import { IndexComponent } from './index/index.component';
 import { AngularFireAuthGuard, hasCustomClaim, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/fire/compat/auth-guard';
+import { FavCouponsComponent } from './fav-coupons/fav-coupons.component';
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const routes: Routes = [
   { path: '', component: IndexComponent, pathMatch: 'full'},
@@ -24,10 +25,8 @@ const routes: Routes = [
   pathMatch: 'full',canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }},
   { path: 'profilemanagement', component: ProfileManagementComponent,
   pathMatch: 'full',canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }},
-  {
-    path: 'details',
-    loadChildren: () => import('./pages/details/details.module').then( m => m.DetailsPageModule)
-  }
+  { path: 'favCoupons', component: FavCouponsComponent,
+  pathMatch: 'full',canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }}
 ];
 
 @NgModule({

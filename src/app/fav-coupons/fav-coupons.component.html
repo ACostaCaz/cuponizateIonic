@@ -1,8 +1,8 @@
 <app-navbar></app-navbar>
 <ion-content>
   <h2>My favourite coupons</h2>
-    <!---->  
-    <div class="coupon" *ngFor="let coupon of coupons">
+    <!--*ngFor="let coupon of coupons"-->  
+    <div class="coupon" *ngFor="let coupon of data; let i= index">
           <img src="{{coupon.couponImage}}" alt="couponImage">
           <div class="couponInfo">    
               <a href="coupon/{{coupon.id}}"><h4>{{coupon.name}}</h4></a>
@@ -11,7 +11,7 @@
               <p class="cost">{{coupon.ogCost}}€</p>
               <b><p>Discounted price: </p></b>
               <p class="cost">{{coupon.discounted}}€</p>
-              <input type="submit" class="formInput" id="removeFav" value="Remove fav">
+              <input type="submit" (click)="removeFavorite(coupon, i)" class="formInput" id="removeFav" value="Remove fav">
       </div>
   </div>
 </ion-content>

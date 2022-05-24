@@ -22,7 +22,9 @@ import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileManagementComponent } from './profile-management/profile-management.component';
 import { AuthService } from './services/auth.service';
+import { SQLite } from '@awesome-cordova-plugins/sqlite/ngx';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { DatabaseService } from './services/database.service';
 
 @NgModule({
   declarations: [AppComponent,
@@ -38,9 +40,10 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
     ProfileManagementComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,AngularFireModule.initializeApp(environment.firebase),
+
     AngularFireAuthModule, AngularFirestoreModule, FormsModule, AngularFireStorageModule
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, AuthService],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, AuthService, SQLite, DatabaseService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
