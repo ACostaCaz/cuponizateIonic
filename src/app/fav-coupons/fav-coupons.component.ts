@@ -44,9 +44,9 @@ export class FavCouponsComponent implements OnInit {
 
   }
 
-  removeFavorite(coupon: any, i) {
+  removeFavorite(coupon: any) {
     this.databaseService.removeFavorite(coupon);
-    this.data.splice(i);
+    this.data = this.data.filter(item => item.id !== coupon.id);
     this.router.navigateByUrl('/favCoupons');
   }
 }
