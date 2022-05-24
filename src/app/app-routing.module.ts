@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'createcoupon', component: CreateCouponComponent,
   pathMatch: 'full',canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }},
   { path: 'coupon/:id', component: CouponComponent,
-  pathMatch: 'full',canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }},
+  pathMatch: 'full'},
   { path: 'profilemanagement', component: ProfileManagementComponent,
   pathMatch: 'full',canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }},
   { path: 'favCoupons', component: FavCouponsComponent,

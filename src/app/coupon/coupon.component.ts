@@ -23,7 +23,8 @@ export class CouponComponent implements OnInit {
   coupons!: Coupon;
   code!: string;
   storage: any;
-  constructor(private route: ActivatedRoute,private readonly afs: AngularFirestore, private databaseService: DatabaseService) {
+  constructor(private route: ActivatedRoute,private readonly afs: AngularFirestore, private databaseService: DatabaseService,
+              private sqlite: SQLite) {
    }
 
   ngOnInit() {
@@ -47,7 +48,29 @@ export class CouponComponent implements OnInit {
   }
 
   addFavorite() {
-    this.databaseService.addFavorite(this.coupons);
+
+
+    this.sqlite.create({
+      name: 'data.db',
+      location: 'default'
+    })
+      .then((db: SQLiteObject) =>
+        {
+          db.executeSql('SELECT * FROM favorites WHERE id = (?)',[this.coupons.id])
+          .then(result =>
+            {
+              if (result.rows.length > 0) {
+                //DELETE from favorites WHERE id = (?)',[favorite.id]
+                db.executeSql('DELETE from favorites WHERE id = (?)',[this.coupons.id])
+                  .then(() => console.log('Executed SQL'))
+                  .catch(e => console.log(e));
+              } else {
+                this.databaseService.addFavorite(this.coupons);
+              }
+              console.log('Executed SQL');})
+          .catch(e => console.log(e));
+        })
+        .catch(e => console.log(e));
   }
 
 }

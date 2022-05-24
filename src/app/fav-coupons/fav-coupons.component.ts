@@ -32,6 +32,7 @@ export class FavCouponsComponent implements OnInit {
         db.executeSql('SELECT * FROM favorites;',[])
         .then(result => {console.log('Executed SQL');
         for (let i = 0; i < result.rows.length; i++) {
+          console.log(result.rows.item(i));
           this.data.push(result.rows.item(i));
         }
         console.log(this.data);

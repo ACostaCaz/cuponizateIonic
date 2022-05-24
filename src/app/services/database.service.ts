@@ -23,8 +23,8 @@ export class DatabaseService {
     })
       .then((db: SQLiteObject) =>
         { this.db = db;
-        db.executeSql('create table favorites (id VARCHAR(255), business VARCHAR(255), name VARCHAR(255),' +
-          'ogCost double, discounted double, description VARCHAR(255)) IF NOT EXISTS;', [])
+        db.executeSql('create table IF NOT EXISTS favorites (id VARCHAR(255) UNIQUE, couponImage VARCHAR(255),' +
+          ' business VARCHAR(255), name VARCHAR(255), ogCost double, discounted double, description VARCHAR(255));', [])
           .then(() => console.log('Executed SQL'))
           .catch(e => console.log(e));
         })
@@ -40,8 +40,8 @@ export class DatabaseService {
     })
       .then((db: SQLiteObject) =>
         { this.db = db;
-        db.executeSql('INSERT INTO favorites VALUES (?, ?, ?, ?, ?, ?)', [favorite.id, favorite.business, favorite.name,
-                      favorite.ogCost, favorite.discounted, favorite.description])
+        db.executeSql('INSERT INTO favorites VALUES (?, ?, ?, ?, ?, ?, ?)', [favorite.id, favorite.couponImage,
+                      favorite.business, favorite.name, favorite.ogCost, favorite.discounted, favorite.description])
           .then(() => console.log('Executed SQL'))
           .catch(e => console.log(e));
         })
@@ -57,11 +57,13 @@ export class DatabaseService {
       })
         .then((db: SQLiteObject) =>
           { this.db = db;
-          db.executeSql('DELETE FROM favorites WHERE id = (?)',[favorite.id])
+            //DELETE from favorites WHERE id = (?)',[favorite.id]
+          db.executeSql('DELETE from favorites WHERE id = (?)',[favorite.id])
             .then(() => console.log('Executed SQL'))
             .catch(e => console.log(e));
           })
           .catch(e => console.log(e));
+
       }
 
   showFavorites() {
