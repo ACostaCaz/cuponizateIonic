@@ -3,13 +3,7 @@ import { Router } from '@angular/router';
 
 import { Injectable } from '@angular/core';
 import '@capacitor-community/sqlite';
-import { AlertController } from '@ionic/angular';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, from, of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
 import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx';
-import { JsonSQLite } from '@capacitor-community/sqlite';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { DatabaseService } from '../services/database.service';
 
 

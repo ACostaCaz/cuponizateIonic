@@ -27,7 +27,7 @@ export class AuthService {
     return this.auth.signInWithEmailAndPassword(email, password);
   }
 
-  register({ email, password, name, address }: any, data: any) {
+  register({ email, password}: any, data: any) {
     return this.auth.createUserWithEmailAndPassword(email, password).then(user => {
       this.profileService.create(user.user.uid,{
         id: user.user.uid,
