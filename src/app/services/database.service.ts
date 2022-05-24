@@ -49,6 +49,21 @@ export class DatabaseService {
 
     }
 
+    removeFavorite(favorite: any) {
+
+      this.sqlite.create({
+        name: 'data.db',
+        location: 'default'
+      })
+        .then((db: SQLiteObject) =>
+          { this.db = db;
+          db.executeSql('DELETE FROM favorites WHERE id = (?)',[favorite.id])
+            .then(() => console.log('Executed SQL'))
+            .catch(e => console.log(e));
+          })
+          .catch(e => console.log(e));
+      }
+
   showFavorites() {
 
 

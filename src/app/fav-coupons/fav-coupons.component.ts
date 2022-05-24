@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 
 import { Injectable } from '@angular/core';
 import '@capacitor-community/sqlite';
@@ -22,7 +22,7 @@ import { DatabaseService } from '../services/database.service';
 export class FavCouponsComponent implements OnInit {
   storage: any;
   data: any = [];
-  constructor(private sqlite: SQLite, private databaseService: DatabaseService) { }
+  constructor(private sqlite: SQLite, private databaseService: DatabaseService, public router: Router) { }
 
   ngOnInit() {
     this.showFavorites();
@@ -47,5 +47,11 @@ export class FavCouponsComponent implements OnInit {
         .catch(e => console.log(e));
 
 
+  }
+
+  removeFavorite(coupon: any, i) {
+    this.databaseService.removeFavorite(coupon);
+    this.data.splice(i);
+    this.router.navigateByUrl('/favCoupons');
   }
 }

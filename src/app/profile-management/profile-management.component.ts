@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { profileService } from '../services/profile.service';
 import {AuthService} from '../services/auth.service';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
@@ -32,7 +33,7 @@ export class ProfileManagementComponent implements OnInit {
   item: Observable<BusinessProfile>;
   // eslint-disable-next-line @typescript-eslint/no-shadow
   constructor(private profileService: profileService, private authService: AuthService, private route: ActivatedRoute,
-    public afs: AngularFirestore, public auth: AngularFireAuth, private storage: AngularFireStorage) { }
+    public afs: AngularFirestore, public auth: AngularFireAuth, private storage: AngularFireStorage, public router: Router) { }
 
   ngOnInit(): void {
    this.auth.onAuthStateChanged(user => {
@@ -84,6 +85,7 @@ export class ProfileManagementComponent implements OnInit {
       saturday: this.saturday,
       sunday: this.sunday
     });
+    this.router.navigateByUrl('/');
   }
 
   buProfile(id: string) {

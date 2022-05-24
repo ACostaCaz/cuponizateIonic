@@ -11,7 +11,7 @@
               <p class="cost">{{coupon.ogCost}}€</p>
               <b><p>Discounted price: </p></b>
               <p class="cost">{{coupon.discounted}}€</p>
-              <input type="submit" class="formInput" id="removeFav" value="Remove fav">
+              <input type="submit" (click)="removeFavorite(coupon, i)" class="formInput" id="removeFav" value="Remove fav">
       </div>
   </div>
 </ion-content>
