@@ -20,39 +20,45 @@ export class CreateCouponComponent {
   business!: string;
   discounted!: string;
   description!: number;
-  constructor(private profileService: profileService, private route: ActivatedRoute,
+  downloadURL: Observable<string>;
+  couponImage: string;
+  file: File;
+  constructor(private route: ActivatedRoute,
     public afs: AngularFirestore, public auth: AngularFireAuth, private storage: AngularFireStorage,
     private couponsService: CouponsService, private authService: AuthService) { }
 
   createCoupon() {
-    this.auth.onAuthStateChanged(user => {
-      if (user) {
-        this.couponsService.create({
-          id: uuid.v4(),
-          business: this.business,
-          name: this.name,
-          ogCost: this.ogCost,
-          discounted: this.discounted,
-          description: this.description,
-          userId: user.uid
-        });
-      }
-    });
-
-  }
-  uploadImage(event) {
-    const file = event.target.files[0];
-    const filePath = '/userImages/' + this.id;
+    const couponId = uuid.v4();
+    const filePath = '/couponImages/' + couponId;
     const ref = this.storage.ref(filePath);
-    const task = this.storage.upload(filePath,file);
+    const task = this.storage.upload(filePath,this.file);
     task.snapshotChanges().pipe(
       finalize(() =>
       {
         this.downloadURL = ref.getDownloadURL();
       this.downloadURL.subscribe(result => {
-        this.profileUrl = result;
+        this.couponImage = result;
+        this.auth.onAuthStateChanged(user => {
+          if (user) {
+            this.couponsService.create({
+              id: couponId,
+              business: this.business,
+              name: this.name,
+              ogCost: this.ogCost,
+              couponImage: this.couponImage,
+              discounted: this.discounted,
+              description: this.description,
+              userId: user.uid
+            });
+          }
+        });
       });}))
     .subscribe();
+
+
+  }
+  uploadImage(event) {
+    this.file = event.target.files[0];
   }
 
 }
